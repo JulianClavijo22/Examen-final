@@ -35,6 +35,38 @@ public class ConsumoGasolina {
         }
     }
 
+    public static int[] posicionConsumoMaximo(int[][] matriz) {
+        int max = Integer.MIN_VALUE;
+
+
+        int[] posicion = new int[2];
+        for (int i = 0; i < matriz.length; i++) {
+            for (int j = 0; j < matriz[i].length; j++) {
+                if (matriz[i][j] > max) {
+                    max = matriz[i][j];
+                    posicion[0] = i;
+                    posicion[1] = j;
+                }
+            }
+        }
+        return posicion;
+    }
+
+    public static void main(String[] args) {
+        int[][] consumo = {
+            {5, 2, 9},
+            {8, 6, 4},
+            {10, 1, 3}
+        };
+
+        System.out.println("Consumos altos: " + contarConsumosAltos(consumo));
+        System.out.println("Promedio consumo moderado: " + promedioConsumoModerado(consumo));
+        imprimirConsumoBajo(consumo);
+        int[] posicionMaxima = posicionConsumoMaximo(consumo);
+        System.out.println("Posición del consumo máximo: [" + posicionMaxima[0] + "][" + posicionMaxima[1] + "]");
+    }
+}
+
     
 
 
